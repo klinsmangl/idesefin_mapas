@@ -28,6 +28,7 @@ function renderList(node, depth = 0, parentId = 'root') {
     const currentId = `${parentId}-${depth}-${makeValidId(node.name || 'root')}`;
     const displayTitle = escapeHtml(node.title || node.name || '');
 
+    const icon = getIcon(node.name);
     const childrenHtml = renderChildren(node, depth + 1, currentId);
     const subLayersHtml = renderSubLayers(node);
 
@@ -36,7 +37,7 @@ function renderList(node, depth = 0, parentId = 'root') {
             <div class="accordion-item mb-2">
                 <h2 class="accordion-header" id="heading-${currentId}">
                     <button class="accordion-button collapsed text-uppercase" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${currentId}" aria-expanded="false" aria-controls="collapse-${currentId}">
-                        ${displayTitle}
+                        ${icon}&nbsp${displayTitle}
                     </button>
                 </h2>
                 <div id="collapse-${currentId}" class="accordion-collapse collapse" aria-labelledby="heading-${currentId}">
@@ -50,6 +51,24 @@ function renderList(node, depth = 0, parentId = 'root') {
     }
 
     return childrenHtml;
+}
+
+function getIcon(name) {
+    const icons = {
+        'Aerolevantamento': '<i class="bi bi-airplane"></i>',
+        'teste': '<i class="bi bi-bug"></i>',
+        'Imageamento': '<i class="bi bi-camera"></i>',
+        'Tributário': '<i class="bi bi-currency-dollar"></i>',
+        'Limites Administrativos': '<i class="bi bi-bounding-box-circles"></i>',
+        'Cartografia Base': '<i class="bi bi-map"></i>',
+        'Zoneamentos':'<i class="bi bi-subtract"></i>',
+        'Observatório do Mercado Imobiliário':'<i class="bi bi-binoculars"></i>',
+        'Uso Solo':'<i class="bi bi-buildings"></i>',
+        'IBGE':'<i class="bi bi-compass"></i>'
+
+    };
+
+    return icons[name] || '';
 }
 
 function renderSubLayers(node) {
@@ -90,7 +109,6 @@ function setupLayerSelection(callback) {
     });
 }
 
-
 async function initMenu(onLayerSelect) {
     const menuContainer = document.getElementById('menu-container');
     const loadingSpinner = `<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>`;
@@ -121,3 +139,4 @@ async function initMenu(onLayerSelect) {
 }
 
 export { renderList, initMenu };
+
