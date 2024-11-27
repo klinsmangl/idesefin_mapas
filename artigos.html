@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body {
+        background-color: #e1f7ff;
+    }
+
+    .navbar {
+        background-color: #10949e !important;
+    }
+    .nav-link.active {
+        border-bottom: 4px solid white;
+    }
+    #header {
+        border-top: 4px solid #10949e !important;
+    }
+
+</style>
+
+<body>
+    <header>
+    <div class="bg-white" id="header">
+        <div class="d-flex justify-content-between align-items-center" style="height: 60px; padding: 0 20px;">
+            <div class="d-flex align-items-center gap-3" style="height: 100%;">
+                <a href="https://sefin.fortaleza.ce.gov.br/" class="d-none d-md-block" style="height: 80%;">
+                    <img src="https://geonetworkdownload.sefin.fortaleza.ce.gov.br/geonetwork/assets/pmf.png" alt="Pmf" style="height: 100%;">
+                </a>
+                <a href="https://ide.sefin.fortaleza.ce.gov.br/" style="height: 80%;">
+                    <img src="https://geonetworkdownload.sefin.fortaleza.ce.gov.br/geonetwork/assets/logo.png" alt="Logo" style="height: 100%;">
+                </a>
+            </div>
+            <div class="d-md-none">
+                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <i class="bi bi-list me-2"></i>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-map"></i> Mapa</a></li>
+                            <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-question-circle"></i> Dúvidas</a></li>
+                            <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-envelope"></i> Contato</a></li>
+                            <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-person"></i> Entrar</a></li>
+                            <hr>                            
+                            <li><a class="btn btn-link text-black text-decoration-none" href="#">INICIO</a></li>
+                            <li><a class="btn btn-link text-black text-decoration-none" href="#">METADADOS</a></li>
+                            <li><a class="btn btn-link text-black text-decoration-none" href="#">GEOSERVIÇOS</a></li>
+                            <li><a class="btn btn-link text-black text-decoration-none" href="#">DOWNLOADS</a></li>
+                            <li><a class="btn btn-link text-black text-decoration-none" href="#">INSTITUCIONAL</a></li>
+                            <li><a class="btn btn-link text-black text-decoration-none" href="#">MANUAIS</a></li>
+                            <li><a class="btn btn-link text-black text-decoration-none" href="#">NOTICIAS</a></li>
+                            <li><a class="btn btn-link text-black text-decoration-none" href="#">ARTIGOS</a></li>                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="d-none d-md-flex">
+                <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Map">
+                    <i class="bi bi-map"></i>
+                    <span class="d-block">Mapa</span>
+                </a>
+                <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Help">
+                    <i class="bi bi-question-circle"></i>
+                    <span class="d-block">Dúvidas</span>
+                </a>
+                <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Messages">
+                    <i class="bi bi-envelope"></i>
+                    <span class="d-block">Contato</span>
+                </a>
+                <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Profile">
+                    <i class="bi bi-person"></i>
+                    <span class="d-block">Entrar</span>
+                </a>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light" style="padding: 0;">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav w-100 d-flex justify-content-between">
+                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="#">INICIO</a></li>
+                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="#">METADADOS</a></li>
+                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="#">GEOSERVIÇOS</a></li>
+                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="#">DOWNLOADS</a></li>
+                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="#">INSTITUCIONAL</a></li>
+                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="#">MANUAIS</a></li>
+                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="#">NOTICIAS</a></li>
+                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white active" href="#">ARTIGOS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <div class="container bg-white">
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <h1 class= "my-4">Artigos</h1>
+        </div>
+        <form class="d-flex mb-4" role="search">
+            <div class="input-group">
+                <input class="form-control" type="search" placeholder="Pesquisar artigos" aria-label="Search">
+                <button class="btn text-white" style="background-color: #10949e;" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </form>
+        <div class="card">
+            <div class="row g-0 p-4">
+                <div class="col-md-4">
+                    <a href="http://www.ocs.cobrac.ufsc.br/index.php/cobrac/cobrac2024/paper/view/1073/494" target="_blank">
+                        <img src="https://placehold.co/300" class="img-fluid rounded h-100 w-100" alt="...">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h4>
+                            <a href="http://www.ocs.cobrac.ufsc.br/index.php/cobrac/cobrac2024/paper/view/1073/494" target="_blank" class="card-title text-decoration-none">INTEGRAÇÃO DE TÉCNICAS MULTIVARIADAS E ESPACIAIS
+                                PARA A ANÁLISE DE DADOS CENSITÁRIOS E IMOBILIÁRIOS
+                                DE CADASTROS MUNICIPAIS.</a>
+                        </h4> 
+                        <hr/>
+                        <h6 class="card-subtitle mb-2 text-muted"><strong>Antônio Augusto Ferreira de Oliveira</strong>, Marco Aurélio Stumpf González, Claudia Monteiro De Cesare, Luan Victor Vasconcelos Noberto, Klinsman Gledson Guimarães de Araújo</h6>
+                        <hr>
+                        <p class="card-text">Este estudo apresenta uma metodologia para qualificar o cadastro imobiliário de Fortaleza, utilizando
+                            dados do Censo IBGE e do Cadastro Imobiliário Municipal (CIM), por meio de técnicas multivariadas e
+                            espaciais. A Análise Fatorial por Componentes Principais (PCA) reduziu a dimensionalidade dos dados,
+                            resultando em quatro fatores principais que explicaram 70,78% da variância, relacionados à ocupação
+                            urbana, densidade populacional, valor de mercado e disponibilidade de terrenos vagos. Observou-se
+                            uma correlação elevada entre o número de domicílios do IBGE e as inscrições residenciais do CIM,
+                            embora o IBGE registre mais domicílios, sugerindo a desatualização do CIM devido à dificuldade de
+                            inclusão de imóveis informais ou erros no cadastro de imóveis formais. A técnica de regionalização
+                            SKATER foi utilizada para criar 12 zonas homogêneas, combinando diferentes agrupamentos espaciais
+                            e fatores principais. A análise revelou uma alta correlação entre a área de lotes vagos e a extensão dos
+                            setores censitários, além de uma relação inversa entre o valor de mercado dos imóveis e a
+                            vulnerabilidade social. A metodologia mostrou-se eficiente na detecção de inconsistências cadastrais e
+                            identificação de padrões territoriais, contribuindo para uma melhor gestão territorial, planejamento urbano e tributação imobiliária</p>
+                        <p class="card-text"><small class="text-muted">Publicado em Novembro de 2024</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="background-color: rgb(16, 148, 158); padding-top: 2px; padding-bottom: 2px;">
+        <div class="card">
+            <div class="row g-0 p-4">
+                <div class="col-md-4">
+                    <a href="http://www.ocs.cobrac.ufsc.br/index.php/cobrac/cobrac2024/paper/view/989/434" target="_blank">
+                        <img src="https://placehold.co/300" class="img-fluid rounded h-100 w-100" alt="...">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                            <h4>
+                                <a href="http://www.ocs.cobrac.ufsc.br/index.php/cobrac/cobrac2024/paper/view/989/434" target="_blank" class="card-title text-decoration-none">EVOLUÇÃO DA GESTÃO TERRITORIAL,
+                                    GEORREFERENCIADA E MULTIFINALITÁRIA DE
+                                    FORTALEZA,CE.</a>
+                            </h4> 
+                            <hr>
+                        <h6 class="card-subtitle mb-2 text-muted"><strong>Fernanda de Souza Farias Gimenes</strong>, Elizete de Oliveira Santos, Rebecca Nogueira Lopes, Monelisa da Silva Liberato, Ana Carla de Queiroz Paiva</h6>
+                        <hr>
+                        <p class="card-text">O Cadastro Territorial Multifinalitário é uma ferramenta de gestão que contém as informações
+                            geoespaciais, catalogadas em camadas temáticas, a disposição dos gestores públicos e da sociedade.
+                            Em Fortaleza, o Cadastro Imobiliário Municipal (CIM) tem se destacado pela adoção de tecnologias
+                            avançadas e boas práticas, que permitiram melhorias significativas no manejo do território. O
+                            aperfeiçoamento e a inclusão contínua dessas práticas são essenciais para consolidar as melhorias e
+                            incorporar novas metodologias, assegurando uma gestão mais eficiente e integrada do território urbano.
+                            Além disso, é de crucial importância catalogar as atividades desenvolvidas, destacando as atualizações
+                            ocorridas no último biênio, demonstrando como a aplicação de geotecnologias pode melhorar a
+                            qualidade e eficácia dos serviços públicos, reforçando o compromisso de Fortaleza com a inovação e
+                            a transparência na administração municipal. Portanto, conclui-se que a evolução da gestão territorial,
+                            georreferenciada e multifinalitária de Fortaleza, perpassa pelos investimentos realizados em
+                            capacitação contínua, adoção de novas tecnologias e conformidade legal.</p>
+                        <p class="card-text"><small class="text-muted">Publicado em Novembro de 2024</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="background-color: rgb(16, 148, 158); padding-top: 2px; padding-bottom: 2px;">
+        <div class="card">
+            <div class="row g-0 p-4">
+                <div class="col-md-4">
+                    <a href="http://www.ocs.cobrac.ufsc.br/index.php/cobrac/cobrac2024/paper/view/997/458" target="_blank">
+                        <img src="https://placehold.co/300" class="img-fluid rounded h-100 w-100" alt="...">
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h4>
+                            <a href="http://www.ocs.cobrac.ufsc.br/index.php/cobrac/cobrac2024/paper/view/997/458" target="_blank" class="card-title text-decoration-none">PROPOSTA METODOLÓGICA DE AÇÃO DE FISCALIZAÇÃO PARA FINS DE CONCESSÃO DA NÃO INCIDÊNCIA TRIBUTÁRIA REFERENTE À TAXA DO SERVIÇO PÚBLICO DE MANEJO DE RESÍDUOS SÓLIDOS URBANOS (TMRSU).</a>
+                        </h4>  
+                        <hr>
+                        <h6 class="card-subtitle mb-2 text-muted"><strong>Lucas Emerson Uchôa Ribeiro</strong>, Fernanda de Souza Farias Gimenes, Clayton Semir Lima Bustamante, José Ramon Vasconcelos Cavalcante</h6>
+                        <hr>
+                        <p class="card-text mw-100 truncate-text">Este trabalho objetiva a concepção de uma proposta metodológica de ação de fiscalização, com o
+                            intuito de promover a não incidência da Taxa do Serviço Público de Manejo de Resíduos Sólidos
+                            Urbanos (TMRSU) para unidades imobiliárias que representem grandes geradores e que não
+                            pertençam a um mesmo lote fiscal. A proposta foi desenvolvida a partir do trabalho cotidiano da
+                            Secretaria Municipal das Finanças (SEFIN), especificamente nas atividades do Cadastro
+                            Imobiliário Municipal, que integra a estrutura organizacional da Secretaria. Para isso, a
+                            metodologia foi baseada em quatro etapas: 1) Levantamentos bibliográficos e documentais; 2)
+                            Interpretação das normas jurídicas e sua relação com as práticas cotidianas da SEFIN; 3) Criação
+                            de imagens; e 4) Sistematização dos resultados e conclusões da pesquisa. Como resultados, a
+                            proposta metodológica da ação de fiscalização foi materializada através de quatro etapas: 1)
+                            Alteração da Geometria e Situação do Lote; 2) Alteração da Área do Terreno e do Comprimento
+                            da Testada Principal; 3) Migração das Unidades Imobiliárias; e 4) Endereçamento.
+                            </p>
+                        <p class="card-text"><small class="text-muted">Publicado em Novembro de 2024</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
