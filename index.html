@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Inicial</title>
+    <title>IDE SEFIN - Infraestrutura de Dados espaciais da Secretaria de Finanças de Fortaleza</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -13,12 +13,34 @@
     .navbar {
         background-color: #10949e !important;
     }
+
+    .text-primary {
+        color: #10949e !important;
+    }
+
     .nav-link.active {
         border-bottom: 4px solid white;
     }
     #header {
         border-top: 4px solid #10949e !important;
     }
+
+    .feature-icon {
+            font-size: 2.5rem;
+            color: #10949e;
+        }
+
+    .card-hover:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .stats-box {        
+        border-left: 4px solid #10949e;             
+        padding-left: 1rem;
+    }
+
 
 </style>
 
@@ -86,18 +108,387 @@
 
 </header>
 
+<!--Secção Hero-->
 <div class="container mt-5">
     <div class="row">
-        <!-- Coluna do título -->
         <div class="col-md-6 offset-md-1 d-flex align-items-center justify-content-center">
-            <h1 class="display-4">Infraestrutura de Dados espaciais da Secretaria de Finanças de <strong style="color: #10949e;">Fortaleza</strong></h1>
+            <div>
+                <h1 class="display-4">Infraestrutura de Dados espaciais da Secretaria de Finanças de <strong style="color: #10949e;">Fortaleza</strong></h1>
+                <p class="lead mt-3">Acesse e explore a base de dados cadastrais e tributarios da cidade de Fortaleza.</p>
+                <div class="mt-4">
+                    <a href="https://ide.sefin.fortaleza.ce.gov.br/visualizador" class="btn btn-primary btn-lg me-2" style="background-color: #10949e; border: none;">Explorar Mapa</a>
+                    <a href="https://ide.sefin.fortaleza.ce.gov.br/tutoriais" class="btn btn-outline-secondary btn-lg">Ver Tutoriais</a>
+                </div>
+            </div>
         </div>
-        <!-- Coluna da imagem -->
         <div class="col-md-5 d-flex align-items-center justify-content-center">
             <object type="image/svg+xml" data="src/media/distritos.svg" class="img-fluid" id="distritos"></object>
         </div>
     </div>
 </div>
+<!--Final da Secção Hero-->
+
+<!--Secção Features-->
+<div class="container rounded mt-5 py-5 bg-light">
+    <h2 class="text-center mb-5">Principais Serviços</h2>
+    <div class="row g-4">
+        <div class="col-md-4" style="cursor: pointer;">
+            <div class="card h-100 border-0 card-hover" onclick="window.location.href='https://ide.sefin.fortaleza.ce.gov.br/visualizador'">
+                <div class="card-body text-center">
+                    <i class="bi bi-map feature-icon mb-3"></i>
+                    <h3 class="card-title h4">Visualização de Mapas</h3>
+                    <p class="card-text">Explore camadas de dados geoespaciais com nossa interface interativa e intuitiva.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="cursor: pointer;">
+            <div class="card h-100 border-0 card-hover" onclick="window.location.href='/camadas.html'">
+                <div class="card-body text-center">
+                    <i class="bi bi-download feature-icon mb-3"></i>
+                    <h3 class="card-title h4">Download de Dados</h3>
+                    <p class="card-text">Baixe dados geoespaciais em diversos formatos para uso em seus próprios projetos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="cursor: pointer;">
+            <div class="card h-100 border-0 card-hover" onclick="window.location.href='https://ide.sefin.fortaleza.ce.gov.br/geoservicos'">
+                <div class="card-body text-center">
+                    <i class="bi bi-share feature-icon mb-3"></i>
+                    <h3 class="card-title h4">Geoserviços</h3>
+                    <p class="card-text">Acesse nossos serviços WMS, WFS e WCS para integração com outras aplicações.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="cursor: pointer;">
+            <div class="card h-100 border-0 card-hover" onclick="window.location.href='/artigos.html'">
+                <div class="card-body text-center">
+                    <i class="bi bi-mortarboard feature-icon mb-3"></i>
+                    <h3 class="card-title h4">Artigos</h3>
+                    <p class="card-text">Consulte toda a produção academica realizada pelo nosso setor do Cadastro Imobiliário.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="cursor: pointer;">
+            <div class="card h-100 border-0 card-hover" onclick="window.location.href='https://ide.sefin.fortaleza.ce.gov.br/metadados'">
+                <div class="card-body text-center">
+                    <i class="bi bi-file-earmark-text feature-icon mb-3"></i>
+                    <h3 class="card-title h4">Metadados</h3>
+                    <p class="card-text">Consulte os metadados para obter informações detalhadas dos dados geoespaciais.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" style="cursor: pointer;">
+            <div class="card h-100 border-0 card-hover" onclick="window.location.href='https://ide.sefin.fortaleza.ce.gov.br/tutoriais'">
+                <div class="card-body text-center">
+                    <i class="bi bi-book feature-icon mb-3"></i>
+                    <h3 class="card-title h4">Tutoriais</h3>
+                    <p class="card-text">Aprenda mais sobre como utilizar todos os recursos da plataforma.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Final da Secção Features-->
+
+<!-- Seção Camada Destaque -->
+<div class="container rounded bg-light py-5 mt-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Camada em Destaque</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <img src="src/media/LIMITES_ADMINISTRATIVOS-limite_municipal_OMI-mercado_condominios_apartamento.png" alt="Mapa de Preço de Mercado de Terreno" class="img-fluid w-100">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="h2 mb-4" style="color: #10949e;">Preços de Mercado de Apartamentos</h3>
+                <p class="lead mb-4">
+                    Preços de mercado dos apartamentos e flats colhidos e geolocalizados pelo observatório urbano de valores (OUV) desde o ano de 2015 agrupados por condomínios. Esses preços não podem ser considerados como valores de mercado, pois são preços de oferta ("de pedida" do vendedor).
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="btn px-4 py-2" style="background-color: #10949e; color: white;">
+                        <i class="bi bi-file-earmark-text me-2"></i>Metadados
+                    </a>
+                    <a href="#" class="btn px-4 py-2" style="background-color: #10949e; color: white;">
+                        <i class="bi bi-map me-2"></i>Visualizador
+                    </a>
+                    <a href="#" class="btn px-4 py-2" style="background-color: #10949e; color: white;">
+                        <i class="bi bi-download me-2"></i>Download
+                    </a>
+                </div>
+                <div class="mt-4">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <i class="bi bi-calendar3" style="color: #10949e;"></i>
+                        <span>Taxa de atualização: Diaria</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Final da Secção Camada Destaque-->
+
+<!--Secção Estatísticas-->
+<div class="container py-5">
+    <div class="row text-center g-4">
+        <div class="col-md-3">
+            <div class="stats-box">
+                <h3 class="h2">250+</h3>
+                <p class="text-muted">Geoserviços</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-box">
+                <h3 class="h2">250+</h3>
+                <p class="text-muted">Dados para Downloads</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-box">
+                <h3 class="h2">200+</h3>
+                <p class="text-muted">Metadados</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-box">
+                <h3 class="h2">20</h3>
+                <p class="text-muted">Artigos</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Final da Secção Estatísticas-->
+
+<!--Seção nossos Parceiros-->
+<div class="container-fluid py-5" style="background-color: #10949e;">
+    <div class="container">
+        <h2 class="text-center text-white mb-5">Nossos Parceiros E Colaboradores</h2>
+        <div class="row row-cols-1 row-cols-md-4 g-4 align-items-end justify-content-center">
+            <div class="col">
+                <div class="card-hover h-100">
+                    <img src="src/media/Logo_Fortaleza_em_Mapas_Full_Hor_Col_Light.svg" alt="Fortaleza em Mapas" class="img-fluid w-100">
+                    <h6 class="my-4 text-white text-center">Fortaleza em Mapas</h6>
+                </div>
+            </div>
+            <div class="col">
+                <div class=" card-hover h-100">
+                    <img src="src/media/logotipo-branco-observatorio-novo.svg" alt="Observatório de Fortaleza" class="img-fluid w-100">
+                    <h6 class="my-4 text-white text-center">Observatório de Fortaleza</h6>
+                </div>
+            </div>
+            <div class="col">
+                <div class=" card-hover h-100">
+                    <img src="src/media/cropped-de-portada-1.webp" alt="Valores del Suelo en América Latina" class="img-fluid w-100">
+                    <h6 class="my-4 text-white text-center">Valores del Suelo en América Latina</h6>
+                </div>
+            </div>
+            <div class="col">
+                <div class=" card-hover h-100">
+                    <img src="src/media/logo_transparencia.png" alt="Transparência fortaleza" class="img-fluid w-100">
+                    <h6 class="my-4 text-white text-center">Transparência fortaleza</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Final da Secção nossos Parceiros-->
+
+<!-- secao ultimas atualizacoes -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Últimas Atualizações</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 card-hover bg-light">
+                    <div class="card-body">
+                        <span class="badge bg-primary mb-2" style="background-color: #10949e !important;">Artigos</span>
+                        <h3 class="h5">CHAMAMENTO: queremos conhecer sua pesquisa</h3>
+                        <p class="card-text">Utilizou nossos dados para elaborar sua pesquisa ou trabalho? Queremos conhecer seu produto!</p>
+                        <a href="https://ide.sefin.fortaleza.ce.gov.br/noticia/chamamento-sua-pesquisa" class="text-decoration-none" style="color: #10949e;">Saiba mais →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 card-hover bg-light">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Publicação</span>
+                        <h3 class="h5">Novas camadas disponíveis!</h3>
+                        <p class="card-text">Conheça novos mapas altimétricos e atualização de camadas do levantamento aerofotogamétrico de 2016.</p>
+                        <a href="https://ide.sefin.fortaleza.ce.gov.br/noticia/novas-camadas-disponiveis" class="text-decoration-none" style="color: #10949e;">Saiba mais →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 card-hover bg-light">
+                    <div class="card-body">
+                        <span class="badge bg-info mb-2">Atualizações</span>
+                        <h3 class="h5">IDE-SEFIN de Cara nova!</h3>
+                        <p class="card-text">A Infraestrutura de Dados Espaciais da SEFIN reinaugura seu site disponibilizando novas camadas, dispondo de facilidades e de novas funcionalidades para os usuários.</p>
+                        <a href="https://ide.sefin.fortaleza.ce.gov.br/noticia/novas-camadas-adicionadas" class="text-decoration-none" style="color: #10949e;">Saiba mais →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--final da secao ultimas atualizacoes-->
+
+<!--secao navegue por temas-->
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h2 class="text-center p-3 mb-4">
+                Navegue nas nossas camadas por temas
+            </h2>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3 card-hover">
+                    <a href="/aerolevantamento" class="text-decoration-none">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-airplane theme-icons"></i>
+                            <h6>Aerolevantamento</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 card-hover">
+                    <a href="/imageamento" class="text-decoration-none">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-camera theme-icons"></i>
+                            <h6>Imageamento</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 card-hover">
+                    <a href="/tributario" class="text-decoration-none">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-currency-dollar theme-icons"></i>
+                            <h6>Tributário</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 card-hover">
+                    <a href="/limites" class="text-decoration-none">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-bounding-box-circles theme-icons"></i>
+                            <h6>Limites Administrativos</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 card-hover">
+                    <a href="/cartografia" class="text-decoration-none">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-map theme-icons"></i>
+                            <h6>Cartografia Base</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 card-hover">
+                    <a href="/zoneamentos" class="text-decoration-none">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-subtract theme-icons"></i>
+                            <h6>Zoneamentos</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 card-hover">
+                    <a href="/mercado-imobiliario" class="text-decoration-none">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-binoculars theme-icons"></i>
+                            <h6>Observatório do Mercado Imobiliário</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 card-hover">
+                    <a href="/uso-solo" class="text-decoration-none">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-buildings theme-icons"></i>
+                            <h6>Uso Solo</h6>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 card-hover">
+                    <a href="/ibge" class="text-decoration-none">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-compass theme-icons"></i>
+                            <h6>IBGE</h6>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--final da secao navegue por temas-->
+
+<!-- Seção de Contato -->
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="src/media/sefin.png" alt="Contato" class="img-fluid rounded">
+        </div>
+        
+        <div class="offset-1 col-md-4">
+            <div class="text-center mb-4">
+                <img src="src/media/logo_sefin.png" alt="Logo SEFIN" class="img-fluid mb-3" style="max-width: 300px;">
+                <p class="lead">
+                    Surgido em razão da necessidade de transparência dos dados de órgãos públicos, a IDE-SEFIN tem como objetivo compartilhar aos cidadãos o material geográfico produzido nas atividades da Secretaria de Finanças.
+                </p>
+            </div>
+        
+            <div class="text-center">
+                <h2 class="mb-4 text-primary">Entre em Contato</h2>
+                <p class="lead">Tem alguma dúvida ou deseja saber mais sobre nossos serviços? Entre em contato conosco!</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="bi bi-envelope text-primary me-2"></i>
+                        <strong>Email:</strong>
+                        <a href="mailto:ide@sefin.fortaleza.ce.gov.br" class="text-primary text-decoration-none">ide@sefin.fortaleza.ce.gov.br</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-telephone text-primary me-2"></i>
+                        <strong>Telefone:</strong>
+                        <a href="tel:+558534521790" class="text-primary text-decoration-none">+55 (85) 3452-1790</a>
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-geo-alt text-primary me-2"></i>
+                        <strong>Endereço:</strong>
+                        Rua General Bezerril, 730, Centro - Fortaleza, CE
+                    </li>
+                    <li class="mb-3">
+                        <i class="bi bi-file-earmark-text text-primary me-2"></i>
+                        <strong>Termos de Uso:</strong>
+                        <a href="#" class="text-primary text-decoration-none" data-bs-toggle="modal" data-bs-target="#termosModal">Clique aqui para ler</a>
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Terms of Use Modal -->
+            <div class="modal fade" id="termosModal" tabindex="-1" aria-labelledby="termosModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="termosModalLabel">Termos de Uso</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                O material disponibilizado na plataforma NÃO dispensa ou substitui qualquer documento oficial emitido pelo Município, a exemplo de licenças, alvarás, fichas de informação, declarações, certidões ou documentos referentes às demais obrigações legais e administrativas. As informações disponibilizadas se destinam ao público, profissionais em geral, professores e alunos dos diversos níveis de ensino, democratizando e favorecendo a acessibilidade, a transparência e ciência das ações e dados espaciais sob a competência da Secretaria Municipal das Finanças de Fortaleza (SEFIN).
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+<!-- Final da Seção de Contato -->
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
