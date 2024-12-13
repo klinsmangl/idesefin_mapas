@@ -1,159 +1,211 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Downloads</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<style>
-    .navbar {
+    <title>Menu Hierárquico WMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <style>
+        .bg-primary {
+            background-color: #10949e !important;
+        }
+        
+        .text-primary {
+            color: #10949e !important;
+        }
+        
+        .btn-primary {
+            background-color: #10949e !important;
+            border-color: #10949e !important;
+        }
+        
+        .btn-outline-primary {
+            color: #10949e !important;
+            border-color: #10949e !important;
+        }
+        .btn-outline-primary:hover {
+            color: white !important; 
+            background-color: #10949e !important;
+            border-color: #10949e !important;
+        }
+        .navbar {
         background-color: #10949e !important;
-    }
-    .nav-link.active {
-        border-bottom: 4px solid white;
-    }
-    #header {
-        border-top: 4px solid #10949e !important;
-    }
-
-</style>
-
+        }
+        .nav-link.active {
+            border-bottom: 4px solid white;
+        }
+        #header {
+            border-top: 4px solid #10949e !important;
+        }
+    </style>
+</head>
 <body>
-    <header>
-    <div class="bg-white" id="header">
-        <div class="d-flex justify-content-between align-items-center" style="height: 60px; padding: 0 20px;">
-            <div class="d-flex align-items-center gap-3" style="height: 100%;">
-                <a href="https://sefin.fortaleza.ce.gov.br/" class="d-none d-md-block" style="height: 80%;">
-                    <img src="https://geonetworkdownload.sefin.fortaleza.ce.gov.br/geonetwork/assets/pmf.png" alt="Pmf" style="height: 100%;">
-                </a>
-                <a href="https://ide.sefin.fortaleza.ce.gov.br/" style="height: 80%;">
-                    <img src="https://geonetworkdownload.sefin.fortaleza.ce.gov.br/geonetwork/assets/logo.png" alt="Logo" style="height: 100%;">
-                </a>
-            </div>
-            <div class="d-md-none">
-                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
-                    <i class="bi bi-list me-2"></i>
-                </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-map"></i> Mapa</a></li>
-                            <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-question-circle"></i> Dúvidas</a></li>
-                            <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-envelope"></i> Contato</a></li>
-                            <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-person"></i> Entrar</a></li>
-                            <hr>                            
-                            <li><a class="btn btn-link text-black text-decoration-none" href="#">INICIO</a></li>
-                            <li><a class="btn btn-link text-black text-decoration-none" href="#">METADADOS</a></li>
-                            <li><a class="btn btn-link text-black text-decoration-none" href="#">GEOSERVIÇOS</a></li>
-                            <li><a class="btn btn-link text-black text-decoration-none" href="#">DOWNLOADS</a></li>
-                            <li><a class="btn btn-link text-black text-decoration-none" href="#">INSTITUCIONAL</a></li>
-                            <li><a class="btn btn-link text-black text-decoration-none" href="#">MANUAIS</a></li>
-                            <li><a class="btn btn-link text-black text-decoration-none" href="#">NOTICIAS</a></li>
-                            <li><a class="btn btn-link text-black text-decoration-none" href="#">ARTIGOS</a></li>                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="d-none d-md-flex">
-                <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Map">
-                    <i class="bi bi-map"></i>
-                    <span class="d-block">Mapa</span>
-                </a>
-                <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Help">
-                    <i class="bi bi-question-circle"></i>
-                    <span class="d-block">Dúvidas</span>
-                </a>
-                <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Messages">
-                    <i class="bi bi-envelope"></i>
-                    <span class="d-block">Contato</span>
-                </a>
-                <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Profile">
-                    <i class="bi bi-person"></i>
-                    <span class="d-block">Entrar</span>
-                </a>
-            </div>
+
+<header>
+<div class="bg-white" id="header">
+    <div class="d-flex justify-content-between align-items-center" style="height: 60px; padding: 0 20px;">
+        <div class="d-flex align-items-center gap-3" style="height: 100%;">
+            <a href="https://sefin.fortaleza.ce.gov.br/" class="d-none d-md-block" style="height: 80%;">
+                <img src="https://geonetworkdownload.sefin.fortaleza.ce.gov.br/geonetwork/assets/pmf.png" alt="Pmf" style="height: 100%;">
+            </a>
+            <a href="https://ide.sefin.fortaleza.ce.gov.br/" style="height: 80%;">
+                <img src="https://geonetworkdownload.sefin.fortaleza.ce.gov.br/geonetwork/assets/logo.png" alt="Logo" style="height: 100%;">
+            </a>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light shadow" style="padding: 0;">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav w-100 d-flex justify-content-between">
-                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="index.html">INICIO</a></li>
-                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/metadados">METADADOS</a></li>
-                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/geoservicos">GEOSERVIÇOS</a></li>
-                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white active" href="camadas.html">DOWNLOADS</a></li>
-                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/sobre">INSTITUCIONAL</a></li>
-                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/tutoriais">MANUAIS</a></li>
-                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/noticias">NOTICIAS</a></li>
-                        <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="artigos.html">ARTIGOS</a></li>
+        <div class="d-md-none">
+            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                <i class="bi bi-list me-2"></i>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-map"></i> Mapa</a></li>
+                        <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-question-circle"></i> Dúvidas</a></li>
+                        <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-envelope"></i> Contato</a></li>
+                        <li><a href="#" class="btn btn-link text-black text-decoration-none"><i class="bi bi-person"></i> Entrar</a></li>
+                        <hr>                            
+                        <li><a class="btn btn-link text-black text-decoration-none" href="#">INICIO</a></li>
+                        <li><a class="btn btn-link text-black text-decoration-none" href="#">METADADOS</a></li>
+                        <li><a class="btn btn-link text-black text-decoration-none" href="#">GEOSERVIÇOS</a></li>
+                        <li><a class="btn btn-link text-black text-decoration-none" href="#">DOWNLOADS</a></li>
+                        <li><a class="btn btn-link text-black text-decoration-none" href="#">INSTITUCIONAL</a></li>
+                        <li><a class="btn btn-link text-black text-decoration-none" href="#">MANUAIS</a></li>
+                        <li><a class="btn btn-link text-black text-decoration-none" href="#">NOTICIAS</a></li>
+                        <li><a class="btn btn-link text-black text-decoration-none" href="#">ARTIGOS</a></li>                            
                     </ul>
                 </div>
             </div>
-        </nav>
+        </div>
+        <div class="d-none d-md-flex">
+            <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Map">
+                <i class="bi bi-map"></i>
+                <span class="d-block">Mapa</span>
+            </a>
+            <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Help">
+                <i class="bi bi-question-circle"></i>
+                <span class="d-block">Dúvidas</span>
+            </a>
+            <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Messages">
+                <i class="bi bi-envelope"></i>
+                <span class="d-block">Contato</span>
+            </a>
+            <a href="#" class="btn btn-link text-secondary text-decoration-none" aria-label="Profile">
+                <i class="bi bi-person"></i>
+                <span class="d-block">Entrar</span>
+            </a>
+        </div>
     </div>
+    <nav class="navbar navbar-expand-lg navbar-light shadow" style="padding: 0;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav w-100 d-flex justify-content-between">
+                    <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="index.html">INICIO</a></li>
+                    <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/metadados">METADADOS</a></li>
+                    <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/geoservicos">GEOSERVIÇOS</a></li>
+                    <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white active" href="camadas.html">DOWNLOADS</a></li>
+                    <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/sobre">INSTITUCIONAL</a></li>
+                    <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/tutoriais">MANUAIS</a></li>
+                    <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="https://ide.sefin.fortaleza.ce.gov.br/noticias">NOTICIAS</a></li>
+                    <li class="nav-item" style="flex: 1; text-align: center;"><a class="nav-link text-white" href="artigos.html">ARTIGOS</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 </header>
 
-<div class="container-fluid bg-light" id="main-container">
-    <div class="row min-vh-100 p-3" id="main-content">
-        <!-- Sidebar menu container -->
-        <div class="col-12 col-md-4 mb-3 d-flex">
-            <div class="card shadow-sm w-100">
-                <div class="card-header text-white" style="background-color: #10949e">
-                    <h5 class="card-title mb-0">Camadas</h5>
+<div class="m-4 bg-light">
+    <div class="row">
+       <!-- menu lateral -->
+       <div class="col-md-3" >
+          <div class="card border-0 shadow-sm rounded-3 mb-3" style="height: 700px;">
+             <div class="card-header bg-primary text-white">
+                Camadas
+             </div>
+             <div class="card-body overflow-y-auto">
+                <div class="accordion" id="accordionMenu"></div>
+             </div>
+          </div>
+       </div>
+       <!-- Map and Preview Section -->
+       <div class="col-md-9">
+          <div class="card border-0 shadow-sm rounded-3 mb-3" style="height: 700px;">
+             <div class="card-header bg-primary text-white">
+                Pré-visualização
+             </div>
+             <div class="card-body p-0">
+                <div id="map" style="height: 100%;"></div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- Layer Information Card -->
+    <div class="row" >
+       <div class="col-9">
+          <div class="card border-0 shadow-sm rounded-3 mb-4" id="layer-info-card">
+             <div class="card-header bg-light p-3">
+                <h5 class="card-title display-4 m-0" id="layerTitle">Nenhuma camada Selecionada</h5>
+             </div>
+             <div class="card-body p-3">
+                <p class="card-text">
+                   <span class="lead" id="layerAbstract">
+                   Por favor, selecione uma camada para ver o resumo aqui. Se quiser baixar a camada, clique em Download.
+                   </span>
+                </p>
+             </div>
+          </div>
+          <div class="row g-3">
+            <!-- Download Section -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm rounded-3 mb-3">
+                    <div class="card-header bg-primary text-white p-3">
+                        <i class="bi bi-download me-2"></i>
+                        Downloads
+                    </div>
+                    <div class="card-body p-3 text-center">
+                        <div id="downloadLinks" class="d-flex flex-wrap gap-2"></div>
+                    </div>
                 </div>
-                <div class="card-body p-4">
-                    <div class="list-group" id="menu-container" style="
-                        max-height: calc(100vh - 250px);
-                        overflow-y: scroll;
-                        overflow-x: hidden;
-                        scrollbar-gutter: stable;
-                    ">
-                        <!-- Lista dos itens -->
+            </div>
+            <!-- Geoservices Section -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm rounded-3 mb-3">
+                    <div class="card-header bg-primary text-white p-3">
+                        <i class="bi bi-globe me-2"></i>
+                        Geosserviços
+                    </div>
+                    <div class="card-body p-3 text-center">
+                        <div id="geoservicesLinks" class="d-flex flex-wrap gap-2"></div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Map container -->
-        <div class="col-12 col-md-8 mb-3 d-flex">
-            <div class="card shadow-sm w-100">
-                <div class="card-header text-white" style="background-color: #10949e">
-                    <h5 class="card-title mb-0">Pré-visualização</h5>
-                </div>
-                <div class="card-body p-0" style="min-height: calc(100vh - 250px);" id="map">
-                    <!-- Your map will be rendered here -->
-                </div>
-            </div>
-        </div>
-
-        <!-- WFS Downloader Card -->
-        <div class="col-12">
-            <div class="card shadow-sm" id="wfs-downloader-card">
-                <div class="card-header text-center">
-                    <h6 id="card-title" class="mb-0">Selecione uma camada</h6>
-                </div>
-                <div class="card-body text-center">
-                    <!-- Buttons will be inserted here dynamically -->
-                </div>
-                <div class="card-footer text-center">
-                    <small>Clique no formato para baixar</small>
-                </div>
-            </div>
-        </div>
+       </div>
+       <div class="col-3">
+          <div class="card border-0 shadow-sm rounded-3 mb-3" id="layer-legend-card">
+             <div class="card-header bg-primary text-white">
+                <i class="bi bi-info-square me-2"></i>
+                Legenda:
+             </div>
+             <div class="card-body">
+                <img id="layerLegend" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Legenda da camada" class="img-fluid">
+             </div>
+          </div>
+       </div>
     </div>
-</div>
 
-    <script type="module" src="src/getLayers.js"></script>
-    <script type="module" src="src/menuLayers.js"></script>
-    <script type="module" src="src/app.js"></script>
-    <script type="module" src="src/wfsDownloader.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+ 
+ </div>
+
+<script type="module" src="src/camadas.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
