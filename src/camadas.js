@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    const getCapabilitiesUrl = "https://geoserverhomo23.sefin.fortaleza.ce.gov.br/geoserver/wms?service=WMS&version=1.3.0&request=GetCapabilities";
-    const baseWmsUrl = "https://geoserverhomo23.sefin.fortaleza.ce.gov.br/geoserver/wms";
+    const getCapabilitiesUrl = "https://geoserver.sefin.fortaleza.ce.gov.br/geoserver/wms?service=WMS&version=1.3.0&request=GetCapabilities";
+    const baseWmsUrl = "https://geoserver.sefin.fortaleza.ce.gov.br/geoserver/wms";
 
     let selectedLayer = null;
     let selectedTitle = null;
@@ -76,7 +76,7 @@ $(document).ready(function () {
             const icon = iconMap[title] || ''; // Icon for the main accordion item only
             const layersHtml = node.layers ? node.layers.map(layer => `
                 <li class="list-group-item d-flex justify-content-between">
-                    <button class="btn btn-link text-start" onclick="selectLayer('${layer.layerName}', '${layer.title}', '${layer.abstract}', '${layer.metadataUrl}', '${layer.dataUrl}')">
+                    <button class="btn btn-link text-start text-primary text-decoration-none" onclick="selectLayer('${layer.layerName}', '${layer.title}', '${layer.abstract}', '${layer.metadataUrl}', '${layer.dataUrl}')">
                        ${layer.title}
                     </button>
                 </li>
@@ -89,7 +89,7 @@ $(document).ready(function () {
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading-${id}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${id}" aria-expanded="false" aria-controls="collapse-${id}">
-                            ${icon} ${title}
+                            ${icon} &nbsp;${title}
                         </button>
                     </h2>
                     <div id="collapse-${id}" class="accordion-collapse collapse" aria-labelledby="heading-${id}">
@@ -127,11 +127,11 @@ $(document).ready(function () {
 
         // Atualiza seção de downloads
         const downloadFormats = [
-            { format: "Shapefile", url: `${baseWmsUrl}?service=WFS&version=1.1.0&request=GetFeature&typeName=${selectedLayer}&outputFormat=shape-zip` },
-            { format: "CSV", url: `${baseWmsUrl}?service=WFS&version=1.1.0&request=GetFeature&typeName=${selectedLayer}&outputFormat=csv` },
-            { format: "GeoJSON", url: `${baseWmsUrl}?service=WFS&version=1.1.0&request=GetFeature&typeName=${selectedLayer}&outputFormat=application%2Fjson` },
-            { format: "KML", url: `${baseWmsUrl}/kml?layers=${selectedLayer}` },
-            { format: "ZIP", url: selectedDataUrl }
+            { format: "Shapefile", url: `${baseWmsUrl}?service=WFS&version=1.1.0&request=GetFeature&typeName=${selectedLayer}&outputFormat=shape-zip`, icon: "bi-bounding-box" },
+            { format: "CSV", url: `${baseWmsUrl}?service=WFS&version=1.1.0&request=GetFeature&typeName=${selectedLayer}&outputFormat=csv`, icon: "bi-table" },
+            { format: "GeoJSON", url: `${baseWmsUrl}?service=WFS&version=1.1.0&request=GetFeature&typeName=${selectedLayer}&outputFormat=application%2Fjson`, icon: "bi-braces" },
+            { format: "KML", url: `${baseWmsUrl}/kml?layers=${selectedLayer}`, icon: "bi-globe" },
+            { format: "ZIP", url: selectedDataUrl, icon: "bi-file-earmark-zip" }
         ];
 
         const downloadHtml = downloadFormats.map(f => {
@@ -143,7 +143,7 @@ $(document).ready(function () {
             }
             return `
                 <a href="${f.url}" target="_blank" class="btn btn-outline-primary m-1">
-                    <i class="bi bi-download"></i> ${f.format}
+                    <i class="bi ${f.icon}"></i> ${f.format}
                 </a>
             `;
         }).join("");
@@ -160,7 +160,7 @@ $(document).ready(function () {
                 <i class="bi bi-vector-pen"></i> WFS
             </a>
             <a href="${selectedMetadataUrl}" target="_blank" class="btn btn-outline-secondary m-1">
-                <i class="bi bi-braces"></i> WCS
+                <i class="bi bi-braces-asterisk"></i> WCS
             </a>
         `;
 
